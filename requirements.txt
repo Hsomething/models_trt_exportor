@@ -1,0 +1,8 @@
+pyyaml
+torch
+torchvision
+nvidia-pyindex
+pycuda
+onnx
+onnxruntime-gpu
+tensorrt

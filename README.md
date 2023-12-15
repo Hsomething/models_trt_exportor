@@ -7,9 +7,9 @@ this repository is the script of Convert, which convert onnx Model to TRT. Suppo
 
  Support Model List
 
-​	:ballot_box_with_check: YOLOV8
+   :white_check_mark:  YOLOV8
 
-​	:ballot_box_with_check: YOLOX
+   :white_check_mark:  YOLOX
 
 TODO List:
 
@@ -29,6 +29,33 @@ TODO List:
     
 
 2. Install TensorRT to Python
+   
+   **Install CUDA ToolKit**
+   
+   ```shell
+   wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.run
+   sudo sh cuda_11.1.1_455.32.00_linux.run
+   ```
+   
+   **Install cudnn**
+   
+   download cudnn from   https://developer.nvidia.com/rdp/cudnn-archive
+
+   ```shell
+   tar -zxvf cudnn-11.3-linux-x64-v8.2.1.32.tar.gz
+   cp -r cuda/lib64/* /usr/local/cuda/lib64/ && cp -r cuda/lib64/* /usr/local/cuda-11.1/lib64/
+   cp -r cuda/include/* /usr/local/cuda/include/ && cp -r cuda/include/* /usr/local/cuda-11.1/include/
+   ```
+   
+   **Install TensorRT**
+   
+   ```shell
+   wget https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/secure/8.6.1/tars/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-11.8.tar.gz
+   tar -zxvf TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-11.8.tar.gz && cd TensorRT-8.6.1.6
+   export LD_LIBRARY_PATH=/home/aistudio/work/TensorRT-8.6.0.12/lib:$LD_LIBRARY_PATH
+   export LIBRARY_PATH=/home/aistudio/work/TensorRT-8.6.0.12/lib::$LIBRARY_PATH
+   ```
+   
 
 3. Run And Export
 
@@ -47,6 +74,15 @@ TODO List:
 
 ## Infer Times
 
+   Test Environment:
+   > - GPU: 2080Ti
+   > - cuda: 11.4
+   > - cudnn: 8.2.4
+   > - TensorRT: 8.6.1
+   > - PyTorch: 2.0.1
+   > - OnnxRuntime-GPU: 1.16.2
+   > - Opencv: 4.8.0.74
+
 | Model structure | Backend           | test times | Language | Pipeline Avg Time(ms) | infer Avg Time(ms) |
 | --------------- | ----------------- | ---------- | -------- | --------------------- | ------------------ |
 | YOLO8-s         | PyTorch           | 100        | Python   | 21.5                  | 6.3                |
@@ -55,4 +91,6 @@ TODO List:
 | YOLO8-s         | OnnxRuntime(Half) | 100        | Python   | 65.48                 | 8.1                |
 | YOLO8-s         | TensorRT          | 100        | Python   | 27.06                 | 6.2                |
 | YOLO8-s         | TensorRT(Half)    | 100        | Python   | 24.31                 | 3.72               |
+
+![result](bus_ret.jpg)
 

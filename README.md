@@ -53,7 +53,7 @@ TODO List:
    wget https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/secure/8.6.1/tars/TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-11.8.tar.gz
    tar -zxvf TensorRT-8.6.1.6.Linux.x86_64-gnu.cuda-11.8.tar.gz && cd TensorRT-8.6.1.6
    export LD_LIBRARY_PATH=/home/aistudio/work/TensorRT-8.6.0.12/lib:$LD_LIBRARY_PATH
-   export LIBRARY_PATH=/home/aistudio/work/TensorRT-8.6.0.12/lib::$LIBRARY_PATH
+   export LIBRARY_PATH=/home/aistudio/work/TensorRT-8.6.0.12/lib:$LIBRARY_PATH
    ```
    
 
